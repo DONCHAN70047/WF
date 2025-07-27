@@ -59,7 +59,7 @@ const File3 = ({ onNextPage, onPreviousPage }) => {
             <div className="luxury-cake">
               <div className="cake-image-container">
                 <img 
-                  src="\public\PIC.jpg" 
+                  src="/PIC.jpg" 
                   alt="Luxury Birthday Cake"
                   className="cake-image"
                 />

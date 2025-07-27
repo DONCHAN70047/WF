@@ -3,9 +3,12 @@ import './MomentSlider.css';
 
 const images = [
   "/PIC.jpg",
-  "/images/birthday2.jpg",
-  "/images/birthday3.jpg",
-  "/images/birthday4.jpg"
+  "/PIC2.jpg",
+  "/PIC3.jpg",
+  "/PIC4.jpg",
+  "/PIC5.jpg",
+  "/PIC6.jpg",
+  "/PIC7.jpg"
 ];
 
 const MomentSlider = ({ onNextPage, onPreviousPage }) => {
@@ -75,8 +78,10 @@ const MomentSlider = ({ onNextPage, onPreviousPage }) => {
                   alt="Birthday Memories"
                   className="cake-image"
                 />
+                
                 <div className="cake-overlay"></div>
               </div>
+              
             </div>
 
             {/* Floating Elements */}
