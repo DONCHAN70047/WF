@@ -8,7 +8,8 @@ const images = [
   "/PIC4.jpg",
   "/PIC5.jpg",
   "/PIC6.jpg",
-  "/PIC7.jpg"
+  "/PIC7.jpg",
+  "/PIC8.jpg"
 ];
 
 const MomentSlider = ({ onNextPage, onPreviousPage }) => {
