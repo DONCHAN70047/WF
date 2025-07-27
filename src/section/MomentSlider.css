@@ -234,13 +234,8 @@
 
 .cake-image-container {
   position: relative;
-<<<<<<< Updated upstream
-  width: 220px;
-  height: 290px;
-=======
   width: 250px;
   height: 300px;
->>>>>>> Stashed changes
   border-radius: 40px;
   overflow: hidden;
   box-shadow: 
