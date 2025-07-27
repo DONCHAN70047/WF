@@ -1,0 +1,703 @@
+.luxury-card {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: visible;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 10px;
+}
+
+.luxury-card.loaded {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Luxury Background */
+.luxury-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.particle-field {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, #ffd700 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float-particle linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes float-particle {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.gradient-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+/* Main Card Container */
+.card-wrapper {
+  width: 90%;
+  max-width: 900px;
+  height: 85%;
+  max-height: 700px;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.luxury-card-inner {
+  width: 100%;
+  height: 80%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  backdrop-filter: blur(20px);
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  position: relative;
+  overflow: visible;
+}
+
+/* Luxury Header */
+.luxury-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 30px;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  padding: 0 40px;
+  z-index: 25;
+}
+
+.crown-container {
+  position: relative;
+}
+
+.crown {
+  font-size: 3rem;
+  filter: drop-shadow(0 0 20px #ffd700);
+  animation: crown-sparkle 3s ease-in-out infinite;
+}
+
+.crown-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: crown-pulse 2s ease-in-out infinite;
+}
+
+@keyframes crown-sparkle {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.1) rotate(5deg); }
+}
+
+@keyframes crown-pulse {
+  0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+}
+
+.premium-badge {
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  padding: 8px 16px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.premium-badge span {
+  color: #000;
+  font-weight: bold;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Content Section */
+.content-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  min-height: 400px;
+  padding: 60px 0;
+}
+
+/* Luxury Text */
+.luxury-text {
+  text-align: center;
+  margin-bottom: 30px;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-title {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.title-line {
+  display: block;
+  font-size: 4.5rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+  animation: title-glow 3s ease-in-out infinite;
+  font-family: 'Georgia', serif;
+  letter-spacing: 3px;
+}
+
+.title-line:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+@keyframes title-glow {
+  0%, 100% { filter: brightness(1) drop-shadow(0 0 20px rgba(255, 215, 0, 0.5)); }
+  50% { filter: brightness(1.2) drop-shadow(0 0 30px rgba(255, 215, 0, 0.8)); }
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-style: italic;
+  margin-top: 10px;
+  letter-spacing: 2px;
+}
+
+/* Luxury Cake */
+.luxury-cake {
+  position: relative;
+  margin: 20px 0;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: scale(0.9);
+}
+
+.cake-image-container {
+  position: relative;
+  width: 300px;
+  height: 250px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(255, 215, 0, 0.3);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.cake-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+
+.cake-image:hover {
+  transform: scale(1.05);
+}
+
+.cake-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 215, 0, 0.1) 0%,
+    rgba(255, 105, 180, 0.1) 50%,
+    rgba(0, 191, 255, 0.1) 100%
+  );
+  pointer-events: none;
+}
+
+.luxury-candles {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+}
+
+.candle {
+  position: relative;
+  width: 8px;
+  height: 30px;
+  background: linear-gradient(135deg, #ff69b4, #ff1493);
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+}
+
+.candle-body {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ff69b4, #ff1493);
+  border-radius: 4px;
+}
+
+.flame {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 12px;
+  background: linear-gradient(135deg, #ffd700, #ff6b35);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  animation: flame-flicker 1.5s ease-in-out infinite;
+}
+
+.flame-glow {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.6) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: flame-glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes flame-flicker {
+  0%, 100% { transform: translateX(-50%) scale(1) rotate(0deg); }
+  50% { transform: translateX(-50%) scale(1.1) rotate(2deg); }
+}
+
+@keyframes flame-glow-pulse {
+  0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+  50% { opacity: 1; transform: translateX(-50%) scale(1.2); }
+}
+
+/* Floating Elements */
+.floating-elements {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 10;
+  overflow: visible;
+}
+
+.champagne-glasses {
+  position: absolute;
+  top: 15%;
+  right: 5%;
+}
+
+.glass {
+  width: 30px;
+  height: 40px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.3));
+  border-radius: 0 0 15px 15px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  position: relative;
+  margin-bottom: 10px;
+  animation: glass-sparkle 3s ease-in-out infinite;
+}
+
+.glass::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  height: 20px;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.6), rgba(255, 215, 0, 0.2));
+  border-radius: 0 0 10px 10px;
+}
+
+.glass-1 { animation-delay: 0s; }
+.glass-2 { animation-delay: 1s; }
+.glass-3 { animation-delay: 2s; }
+
+@keyframes glass-sparkle {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+  50% { transform: scale(1.1) rotate(5deg); opacity: 1; }
+}
+
+.luxury-balloons {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.balloon {
+  position: absolute;
+  width: 30px;
+  height: 40px;
+  border-radius: 50%;
+  animation: luxury-float 4s ease-in-out infinite;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.balloon-0 { background: linear-gradient(135deg, #ff69b4, #ff1493); }
+.balloon-1 { background: linear-gradient(135deg, #ffd700, #ffed4e); }
+.balloon-2 { background: linear-gradient(135deg, #00bfff, #1e90ff); }
+.balloon-3 { background: linear-gradient(135deg, #9370db, #8a2be2); }
+
+.balloon-string {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 25px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), transparent);
+  border-radius: 1px;
+}
+
+@keyframes luxury-float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(2deg); }
+}
+
+/* Luxury Footer */
+.luxury-footer {
+  width: 100%;
+  margin-top: 20px;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  padding: 0 40px;
+  z-index: 25;
+}
+
+.footer-decoration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.decoration-line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.8), transparent);
+  border-radius: 1px;
+}
+
+.decoration-diamond {
+  font-size: 1.5rem;
+  animation: diamond-sparkle 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
+}
+
+@keyframes diamond-sparkle {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.2) rotate(180deg); }
+}
+
+/* Luxury Navigation */
+.luxury-navigation {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 30px;
+  z-index: 30;
+}
+
+.luxury-btn {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 15px 25px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+}
+
+.luxury-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.1));
+  border-color: rgba(255, 215, 0, 0.5);
+}
+
+.btn-icon {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.btn-text {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Ambient Lighting */
+.ambient-lights {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.light {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  filter: blur(40px);
+  animation: ambient-pulse 4s ease-in-out infinite;
+}
+
+.light-1 {
+  top: 10%;
+  left: 10%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, transparent 70%);
+  animation-delay: 0s;
+}
+
+.light-2 {
+  top: 20%;
+  right: 15%;
+  background: radial-gradient(circle, rgba(255, 105, 180, 0.3) 0%, transparent 70%);
+  animation-delay: 1s;
+}
+
+.light-3 {
+  bottom: 30%;
+  left: 20%;
+  background: radial-gradient(circle, rgba(0, 191, 255, 0.3) 0%, transparent 70%);
+  animation-delay: 2s;
+}
+
+.light-4 {
+  bottom: 20%;
+  right: 10%;
+  background: radial-gradient(circle, rgba(147, 112, 219, 0.3) 0%, transparent 70%);
+  animation-delay: 3s;
+}
+
+@keyframes ambient-pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.2); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .title-line {
+    font-size: 3rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .crown {
+    font-size: 2rem;
+  }
+  
+  .luxury-card-inner {
+    padding: 20px;
+  }
+  
+  .cake-image-container {
+    width: 250px;
+    height: 200px;
+  }
+  
+  .luxury-candles {
+    gap: 10px;
+  }
+  
+  .candle {
+    width: 6px;
+    height: 25px;
+  }
+  
+  .balloon {
+    width: 25px;
+    height: 35px;
+  }
+  
+  .luxury-navigation {
+    gap: 20px;
+  }
+  
+  .luxury-btn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title-line {
+    font-size: 2.5rem;
+  }
+  
+  .subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .crown {
+    font-size: 1.5rem;
+  }
+  
+  .premium-badge {
+    padding: 6px 12px;
+  }
+  
+  .premium-badge span {
+    font-size: 0.7rem;
+  }
+  
+  .luxury-card-inner {
+    padding: 15px;
+  }
+  
+  .cake-image-container {
+    width: 200px;
+    height: 150px;
+  }
+  
+  .luxury-candles {
+    gap: 8px;
+  }
+  
+  .candle {
+    width: 5px;
+    height: 20px;
+  }
+  
+  .balloon {
+    width: 20px;
+    height: 30px;
+  }
+  
+  .luxury-navigation {
+    gap: 15px;
+  }
+  
+  .luxury-btn {
+    padding: 10px 15px;
+    font-size: 0.8rem;
+  }
+  
+  .btn-text {
+    display: none;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .happy-neon {
+    font-size: 2.5rem;
+  }
+  
+  .birthday-neon {
+    font-size: 2rem;
+  }
+  
+  .crown-icon {
+    font-size: 2rem;
+  }
+  
+  .top-layer {
+    width: 80px;
+    height: 40px;
+  }
+  
+  .bottom-layer {
+    width: 100px;
+    height: 50px;
+  }
+  
+  .balloon {
+    width: 20px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .happy-neon {
+    font-size: 2rem;
+  }
+  
+  .birthday-neon {
+    font-size: 1.5rem;
+  }
+  
+  .nav-btn {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+} 
